@@ -12,19 +12,20 @@ public class NameClient {
             try {
                 InetAddress serverName = InetAddress.getByName(args[0]);
                 int myPort = Integer.parseInt(args[1]);
-                int foreignPort = Integer.parseInt(args[2]);
+                int serverPort = Integer.parseInt(args[2]);
                 String message;
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
                 
                 // get message from standard in
                 System.out.print("Enter a name: ");
                 message = br.readLine();
+                br.close();
 
                 // send message
                 DatagramSocket dataSocket = new DatagramSocket(myPort);
                 byte[ ] buffer = message.getBytes();
                 DatagramPacket datagram = new DatagramPacket(buffer, buffer.length, 
-                                                            serverName, foreignPort);
+                                                            serverName, serverPort);
                 dataSocket.send(datagram);
 
                 // wait for response
