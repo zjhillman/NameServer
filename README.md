@@ -12,5 +12,5 @@ NameServer [serverPortNumber] [clientPortNumber]
 ### Start the Client
 use the command
 ```
-NameClient [serverName] [serverPortNumber] [clientPortNumber]
+NameClient [serverName] [clientPortNumber] [serverPortNumber]
 ```
