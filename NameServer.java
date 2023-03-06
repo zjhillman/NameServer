@@ -39,7 +39,7 @@ public class NameServer {
                                                 serverName, foreignPort);
                     dataSocket.send(datagram);
                 }
-                dataSocket.flush();
+                //dataSocket.flush();
                 dataSocket.close();
             } catch (Exception e) {
                 e.printStackTrace( );

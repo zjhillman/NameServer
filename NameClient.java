@@ -31,7 +31,7 @@ public class NameClient {
                 buffer = new byte[MAX_LEN];
                 datagram = new DatagramPacket(buffer, MAX_LEN);
                 dataSocket.receive(datagram);
-                message = new String(buffer);
+                message = new String(datagram.getData(), 0, datagram.getLength());
                 System.out.println("Message received: " + message);
 
                 dataSocket.close();
