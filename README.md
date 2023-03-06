@@ -6,11 +6,11 @@ Server and Client where the server listens for names and adds them to a list
 ### Start the Server
 use the command 
 ```
-NameServer [serverPortNumber] [clientPortNumber]
+java NameServer [serverPortNumber] [clientPortNumber]
 ```
 
 ### Start the Client
 use the command
 ```
-NameClient [serverName] [clientPortNumber] [serverPortNumber]
+java NameClient [serverName] [clientPortNumber] [serverPortNumber]
 ```
