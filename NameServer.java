@@ -38,7 +38,7 @@ public class NameServer {
                     buffer = new byte[MAX_LEN];
                     buffer = names.getBytes();
                     datagram = new DatagramPacket(buffer, buffer.length,
-                            clientName, clientPort);
+                            datagram.getAddress(), datagram.getPort());
                     dataSocket.send(datagram);
                 }
                 dataSocket.close();
