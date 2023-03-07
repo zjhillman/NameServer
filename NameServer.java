@@ -4,7 +4,7 @@ public class NameServer {
     final static int MAX_LEN = 128;
 
     public static void main(String args[]) {
-        if (args.length != 2) {
+        if (args.length != 1) {
             System.out.println("This program requires 1 command line argument(s)");
         } else {
             try {
