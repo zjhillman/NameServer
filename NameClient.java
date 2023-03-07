@@ -28,11 +28,17 @@ public class NameClient {
                                                             serverName, serverPort);
                 dataSocket.send(datagram);
 
+                // exit if "done" is entered
+                if (message.toLowerCase().contains("done")) {
+                    dataSocket.close();
+                    return;
+                }
+
                 // wait for response
                 buffer = new byte[MAX_LEN];
                 datagram = new DatagramPacket(buffer, MAX_LEN);
                 dataSocket.receive(datagram);
-                message = new String(datagram.getData(), 0, datagram.getLength());
+                message = new String(datagram.getData(), datagram.getOffset(), datagram.getLength());
                 System.out.println("Message received: " + message);
 
                 dataSocket.close();

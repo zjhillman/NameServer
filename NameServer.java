@@ -24,10 +24,10 @@ public class NameServer {
 
                     // wait for message
                     dataSocket.receive(datagram);
-                    String message = new String(buffer);
+                    String message = new String(datagram.getData(), datagram.getOffset(), datagram.getLength());
 
                     // if name is already in the list, exit
-                    if (names.contains(message.trim())) 
+                    if (message.contains("done")) 
                         break;
 
                     // handle message
@@ -37,7 +37,7 @@ public class NameServer {
 
                     // send response
                     buffer = new byte[MAX_LEN];
-                    buffer = names.getBytes("UTF-8");
+                    buffer = names.getBytes();
                     datagram = new DatagramPacket(buffer, buffer.length,
                                                 clientName, clientPort);
                     dataSocket.send(datagram);
