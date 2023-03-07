@@ -39,7 +39,7 @@ public class NameClient {
                 datagram = new DatagramPacket(buffer, MAX_LEN);
                 dataSocket.receive(datagram);
                 message = new String(datagram.getData(), datagram.getOffset(), datagram.getLength());
-                System.out.println("Message received: " + message);
+                System.out.println("List received\n-------------\n " + message);
 
                 dataSocket.close();
             } catch (Exception e) {
