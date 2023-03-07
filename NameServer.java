@@ -5,17 +5,15 @@ public class NameServer {
 
     public static void main(String args[]) {
         if (args.length != 2) {
-            System.out.println("This program requires 2 command line arguments");
+            System.out.println("This program requires 1 command line argument(s)");
         } else {
             try {
-                InetAddress clientName = InetAddress.getByName("localhost");
                 int myPort = Integer.parseInt(args[0]);
-                int clientPort = Integer.parseInt(args[1]);
                 String names = "";
 
                 // establish server
                 DatagramSocket dataSocket = new DatagramSocket(myPort);
-                System.out.println("Ready for connection.");
+                System.out.println("Ready for connection at " + InetAddress.getLocalHost().toString());
 
                 while (true) {
                     byte[] buffer = new byte[MAX_LEN];

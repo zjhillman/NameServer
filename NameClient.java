@@ -23,6 +23,10 @@ public class NameClient {
                     System.out.print("Enter a name: ");
                     message = br.readLine();
 
+                    // if "exit" is entered, close the client
+                    if (message.toLowerCase().contains("exit"))
+                        break;
+
                     // send message
                     byte[] buffer = message.getBytes();
                     DatagramPacket datagram = new DatagramPacket(buffer, buffer.length,
