@@ -14,3 +14,6 @@ use the command
 ```
 java NameClient [serverName] [clientPortNumber] [serverPortNumber]
 ```
+
+### Properly Closing the applications
+On the client side, type "done" to call both the server and the client to exit

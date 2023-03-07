@@ -5,8 +5,7 @@ public class NameServer {
 
     public static void main(String args[]) {
         if (args.length != 2) {
-            System.out.println
-            ("This program requires 2 command line arguments");
+            System.out.println("This program requires 2 command line arguments");
         } else {
             try {
                 InetAddress clientName = InetAddress.getByName("localhost");
@@ -19,7 +18,7 @@ public class NameServer {
                 System.out.println("Ready for connection.");
 
                 while (true) {
-                    byte[ ] buffer = new byte[MAX_LEN];
+                    byte[] buffer = new byte[MAX_LEN];
                     DatagramPacket datagram = new DatagramPacket(buffer, MAX_LEN);
 
                     // wait for message
@@ -27,7 +26,7 @@ public class NameServer {
                     String message = new String(datagram.getData(), datagram.getOffset(), datagram.getLength());
 
                     // if name is already in the list, exit
-                    if (message.contains("done")) 
+                    if (message.contains("done"))
                         break;
 
                     // handle message
@@ -39,14 +38,14 @@ public class NameServer {
                     buffer = new byte[MAX_LEN];
                     buffer = names.getBytes();
                     datagram = new DatagramPacket(buffer, buffer.length,
-                                                clientName, clientPort);
+                            clientName, clientPort);
                     dataSocket.send(datagram);
                 }
                 dataSocket.close();
             } catch (Exception e) {
-                e.printStackTrace( );
+                e.printStackTrace();
             }
         }
     }
-    
+
 }
